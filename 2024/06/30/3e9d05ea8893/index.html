@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>复活CloudFlare Warp | Yang's Blog</title><meta name="author" content="Yang"><meta name="copyright" content="Yang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="一、开启IPv6可参考文章 开启IPv6 二、重新安装CloudFlare不要从 1.1.1.1 下载，需要从 one.one.one.one 重新下载 三、IP优选下载 Warp IP优选工具  GitHub仓库 百度网盘  退出或关闭所有代理，双击运行 warp-yxip.bat，有安全提示，继续运行  输入2，对IPv6地址进行优选，优选后的结果会保存在 result.csv 文件中  选择">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复活CloudFlare Warp">
+<meta property="og:url" content="https://blog.shiguangdev.eu.org/2024/06/30/3e9d05ea8893/index.html">
+<meta property="og:site_name" content="Yang&#39;s Blog">
+<meta property="og:description" content="一、开启IPv6可参考文章 开启IPv6 二、重新安装CloudFlare不要从 1.1.1.1 下载，需要从 one.one.one.one 重新下载 三、IP优选下载 Warp IP优选工具  GitHub仓库 百度网盘  退出或关闭所有代理，双击运行 warp-yxip.bat，有安全提示，继续运行  输入2，对IPv6地址进行优选，优选后的结果会保存在 result.csv 文件中  选择">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.shiguangdev.eu.org/img/avatar.png">
+<meta property="article:published_time" content="2024-06-30T07:27:17.000Z">
+<meta property="article:modified_time" content="2024-12-18T15:25:15.876Z">
+<meta property="article:author" content="Yang">
+<meta property="article:tag" content="CloudFlare">
+<meta property="article:tag" content="VPN">
+<meta property="article:tag" content="CloudFlare Warp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.shiguangdev.eu.org/img/avatar.png"><link rel="shortcut icon" href="/img/avatar.png"><link rel="canonical" href="https://blog.shiguangdev.eu.org/2024/06/30/3e9d05ea8893/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '复活CloudFlare Warp',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-18 23:25:15'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yang's Blog"><img class="site-icon" src="/img/avatar.png"/><span class="site-name">Yang's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">复活CloudFlare Warp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-30T07:27:17.000Z" title="发表于 2024-06-30 15:27:17">2024-06-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-18T15:25:15.876Z" title="更新于 2024-12-18 23:25:15">2024-12-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B0%8F%E6%8A%80%E8%83%BD/">小技能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="复活CloudFlare Warp"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、开启IPv6"><a href="#一、开启IPv6" class="headerlink" title="一、开启IPv6"></a>一、开启IPv6</h1><p>可参考文章 <a href="https://blog.shiguangdev.eu.org/2024/06/30/46a5ae3e0937/">开启IPv6</a></p>
+<h1 id="二、重新安装CloudFlare"><a href="#二、重新安装CloudFlare" class="headerlink" title="二、重新安装CloudFlare"></a>二、重新安装CloudFlare</h1><p>不要从 1.1.1.1 下载，需要从 <a target="_blank" rel="noopener" href="https://one.one.one.one/">one.one.one.one</a> 重新下载</p>
+<h1 id="三、IP优选"><a href="#三、IP优选" class="headerlink" title="三、IP优选"></a>三、IP优选</h1><p>下载 Warp IP优选工具</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiangyangdev/cf_warp_ip">GitHub仓库</a></p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1joRbpQX4buHSuz3riAlyEg?pwd=n8ea">百度网盘</a></p>
+</blockquote>
+<p>退出或关闭所有代理，双击运行 <code>warp-yxip.bat</code>，有安全提示，继续运行</p>
+<p><img src="https://img.shiguangdev.cn/i/2024/10/17/6710cffb67185.png" alt="image-20240630165320083"></p>
+<p>输入2，对IPv6地址进行优选，优选后的结果会保存在 <code>result.csv</code> 文件中</p>
+<p><img src="https://img.shiguangdev.cn/i/2024/10/17/6710cffbbf828.png" alt="image-20240630165512753"></p>
+<p>选择一个丢包率较低的<code>IP:PORT</code>，直接复制第一个即可，默认是按照从低到高排序的。</p>
+<p>双击运行<code>warp 设置端点.bat</code>，输入刚才复制的IP及端口设置端点</p>
+<p><img src="https://img.shiguangdev.cn/i/2024/10/17/6710cffc1ee3f.png" alt="image-20240630165731021"></p>
+<p>重新连接即可</p>
+<p><img src="https://img.shiguangdev.cn/i/2024/10/17/6710cffc71686.png" alt="image-20240630165825430"></p>
+<h1 id="四、连接问题"><a href="#四、连接问题" class="headerlink" title="四、连接问题"></a>四、连接问题</h1><p>若提示<code>Unable to connect</code> 可能是由于代理问题导致的，可以用火绒的网络修复检测下有无IE代理问题，修复后重新重复上面的步骤连接即可</p>
+<p><img src="https://img.shiguangdev.cn/i/2024/10/17/6710cffcac090.png" alt="image-20240630165856892"></p>
+<p>若提示 Cloudflare WARP 服务不可用。请尝试重新启动</p>
+<p><img src="https://img.shiguangdev.cn/i/2024/10/17/6710cffce7125.png" alt="image-20240701150322155"></p>
+<p>可能是CloudFlare的自启动服务被禁用了，可以在任务管理器手动运行程序</p>
+<p><img src="https://img.shiguangdev.cn/i/2024/10/17/6710cffd38ef0.png" alt="image-20240701150333161"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.shiguangdev.eu.org">Yang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.shiguangdev.eu.org/2024/06/30/3e9d05ea8893/">https://blog.shiguangdev.eu.org/2024/06/30/3e9d05ea8893/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.shiguangdev.eu.org" target="_blank">Yang's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CloudFlare/">CloudFlare</a><a class="post-meta__tags" href="/tags/VPN/">VPN</a><a class="post-meta__tags" href="/tags/CloudFlare-Warp/">CloudFlare Warp</a></div><div class="post_share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/07/01/7e5a67012be5/" title="免费白嫖机场合集"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">免费白嫖机场合集</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/30/46a5ae3e0937/" title="开启IPv6"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">开启IPv6</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/08/b8a40a961b47/" title="使用CloudFlare的Warp+获取无限免费VPN流量"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-08</div><div class="title">使用CloudFlare的Warp+获取无限免费VPN流量</div></div></a></div><div><a href="/2024/04/30/19ef640ce5f9/" title="ChromeGo+CloudFlare获取免费高速节点"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-30</div><div class="title">ChromeGo+CloudFlare获取免费高速节点</div></div></a></div><div><a href="/2024/06/30/ea110e7eab52/" title="CloudFlare搭建BPB代理面板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-30</div><div class="title">CloudFlare搭建BPB代理面板</div></div></a></div><div><a href="/2024/10/14/465256543c4c/" title="CloudFlare搭建Vless免费节点"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-14</div><div class="title">CloudFlare搭建Vless免费节点</div></div></a></div><div><a href="/2024/10/14/ba729c5f609e/" title="CloudFlare零成本部署VLESS免费节点"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-14</div><div class="title">CloudFlare零成本部署VLESS免费节点</div></div></a></div><div><a href="/2024/07/01/ded8409bfff5/" title="Warp升级Zero Trust"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-01</div><div class="title">Warp升级Zero Trust</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yang</div><div class="author-info__description">日暮苍山远，天寒白屋贫。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%BC%80%E5%90%AFIPv6"><span class="toc-number">1.</span> <span class="toc-text">一、开启IPv6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85CloudFlare"><span class="toc-number">2.</span> <span class="toc-text">二、重新安装CloudFlare</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81IP%E4%BC%98%E9%80%89"><span class="toc-number">3.</span> <span class="toc-text">三、IP优选</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">四、连接问题</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/18/fbdcb895aff6/" title="永久免费多节点VPN,Cloudflare Worker快速搭建,支持节点优选">永久免费多节点VPN,Cloudflare Worker快速搭建,支持节点优选</a><time datetime="2024-12-18T11:14:05.000Z" title="发表于 2024-12-18 19:14:05">2024-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/14/465256543c4c/" title="CloudFlare搭建Vless免费节点">CloudFlare搭建Vless免费节点</a><time datetime="2024-10-14T07:03:00.000Z" title="发表于 2024-10-14 15:03:00">2024-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/14/ba729c5f609e/" title="CloudFlare零成本部署VLESS免费节点">CloudFlare零成本部署VLESS免费节点</a><time datetime="2024-10-14T05:08:24.000Z" title="发表于 2024-10-14 13:08:24">2024-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/12/655da27fc468/" title="Web3浏览器">Web3浏览器</a><time datetime="2024-07-12T03:24:26.000Z" title="发表于 2024-07-12 11:24:26">2024-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/06/2df34ba7f3c3/" title="免费云服务器Server00搭建节点">免费云服务器Server00搭建节点</a><time datetime="2024-07-06T22:52:08.000Z" title="发表于 2024-07-07 06:52:08">2024-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8152976493" data-server="netease" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
